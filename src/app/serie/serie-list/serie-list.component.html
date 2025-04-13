@@ -1,31 +1,45 @@
-<h1 class="display-2 p-3">Series de televisión</h1>
-  <div class="container-fluid">
-  <div class="col-6">
-    <table class="table">
-      <thead>
-        <tr>
-          <th class="h4">Id</th>
-          <th class="h4">Nombre</th>
-          <th class="h4">Canal</th>
-          <th class="h4">Temporadas</th>
-        </tr>
-      </thead>
-      <tbody>
-          <tr *ngFor="let s of series">
-              <td>
-                <dd>{{s.id}}</dd>
-              </td>
-              <td>
-                <dd>{{s.name}}</dd>
-              </td>
-              <td>
-                <dd>{{s.channel}}</dd>
-              </td>
-              <td>
-                <dd>{{s.seasons}}</dd>
-              </td>
-          </tr>
-      </tbody>
-    </table>
-  </div>
+<div class="row justify-content">
+        <div class="col-7">
+          <table class="table table-striped">
+            <thead class="thead-light">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Canal</th>
+                    <th scope="col">Temporadas</th>
+                </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let s of series">
+                <td (click)="mostrarSerie(s)" style="cursor: pointer; color: rgb(73, 165, 230);">
+                  {{ s.name }}
+                </td>
+                  <td>
+                    <dd>{{s.name}}</dd>
+                  </td>
+                  <td>
+                    <dd>{{s.channel}}</dd>
+                  </td>
+                  <td>
+                    <dd>{{s.seasons}}</dd>
+                  </td>
+              </tr>
+            </tbody>
+          </table>
+            <div class="row">
+              <p class="col-4 small-text">Promedio de temporadas:</p>
+              <p class="col-1 small-text">{{promedioTemporadas}}</p>
+            </div>
+        </div>
+
+        <div class="col-5" *ngIf="visibilidad">
+          <div class="card" style="width: 29rem;">
+            <img src={{imagenSerie}} class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">{{nombreSerie}}</h5>
+              <p class="card-text">{{descripcionSerie}}</p>
+              <a class="btn btn-primary" href={{urlSerie}} >¡Ver ahora!</a>
+            </div>
+            </div>
+          </div>
 </div>

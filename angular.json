@@ -102,7 +102,6 @@
             ],
             "tsConfig": "tsconfig.spec.json",
             "assets": [
-              "src/tvicon.ico",
               "src/assets"
             ],
             "styles": [
